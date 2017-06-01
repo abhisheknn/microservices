@@ -14,6 +14,7 @@ import org.apache.catalina.webresources.EmptyResourceSet;
 import org.apache.catalina.webresources.StandardRoot;
 import org.apache.tomcat.util.scan.Constants;
 import org.apache.tomcat.util.scan.StandardJarScanFilter;
+import org.apache.catalina.Wrapper;
 
 public class Main {
 
@@ -60,6 +61,12 @@ public class Main {
 
         System.out.println("configuring app with basedir: " + webContentFolder.getAbsolutePath());
 
+		Wrapper a = Tomcat.addServlet(ctx, "rest", "com.sun.jersey.spi.container.servlet.ServletContainer");
+		a.addInitParameter("com.sun.jersey.config.property.packages","com.rest");
+		a.setLoadOnStartup(1);
+		ctx.addServletMapping("/*", "rest");
+			
+		
         // Declare an alternative location for your "WEB-INF/classes" dir
         // Servlet 3.0 annotation will work
         File additionWebInfClassesFolder = new File(root.getAbsolutePath(), "target/classes");
