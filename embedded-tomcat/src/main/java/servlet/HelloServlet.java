@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 @WebServlet(
         name = "MyServlet", 
         urlPatterns = {"/hello"}
@@ -18,6 +20,9 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+    	 Logger logger = Logger.getLogger(HelloServlet.class);
+    	 logger.debug("Hello servlet");
+    	 
         ServletOutputStream out = resp.getOutputStream();
         out.write("Hello".getBytes());
         out.flush();
