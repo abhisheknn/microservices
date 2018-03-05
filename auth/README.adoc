@@ -367,6 +367,11 @@ public class DemoApplication {
 
 If you look at the source code https://github.com/dsyer/spring-boot-angular[in Github] you will also notice that there is a test for the backend interaction in `app.component.spec.ts` (thanks to http://blog.ninja-squad.com/2017/07/17/http-client-module/[this Ninja Squad blog]). The `pom.xml` has been modified to run the Angular e2e tests at the same time as the Java tests.
 
+==HOWTOS
+How to run spring boot Maven app from eclipse.
+Run As" -> "Maven Build..." In the goals, enter spring-boot:run
+
+
 == Conclusion
 
 We have created a Spring Boot application, added a simple HTTP endpoint to it, and then added a front end to it using Angular. The Angular app is self-contained, so anyone who knows the tools can work with it from its own directory. The Spring Boot application folds the Angular assets into its build and a developer can easily update and test the front end from a regular IDE by running the app in the usual way.
