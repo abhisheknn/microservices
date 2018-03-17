@@ -18,12 +18,8 @@ pipeline {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
        steps {
-         script {
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhubcredentials') {
-            def authImage = docker.build("abhisheknn/auth:latest")
-             authImage.push()
-        }
-        }
+          sh 'docker push registry.hub.docker.com/abhisheknn/auth:latest'
+                 
        }
     }
   }
