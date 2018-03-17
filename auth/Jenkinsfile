@@ -20,7 +20,7 @@ pipeline {
        steps {
          script {
         docker.withRegistry('https://registry.hub.docker.com') {
-            def authImage = docker.build("registry.hub.docker.com/abhisheknn/auth:latest")
+            def authImage = docker.image("registry.hub.docker.com/abhisheknn/auth:latest")
              authImage.push()
         }
         }
